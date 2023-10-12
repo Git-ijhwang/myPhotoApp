@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'gallery/main.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <script src="{% static 'gallery/main.js' %}"></script>
+</head>
+<body>
+
+<a href="{% url 'images' %}" class="rect-link1">Images</a>
+<a href="{% url 'videos' %}" class="rect-link2">Videos</a>
+<br>
+
+<button id="clear-btn">Clear</button>
+<!--
+<h1>Images</h1>
+
+<div class="image-container">
+{% for image in page_obj %}
+<h5>{{image}}</h5>
+<img id="myImg" src="{{image}}" alt="{{images}}", style="width:100%; max-width:300px">
+
+{% endfor %}
+</div>
+
+<div class="pagination">
+<span class="step-links">
+    {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number }}"> previous</a>
+    {% endif %}
+
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_page }}.
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}">Next</a>
+        <a href="?page={{page_obj.paginator.num_page}}">Last &raquo;</a>
+    {% endif %}
+</span>
+</div>
+
+<div id="myModal" class="modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="img01">
+</div>
+-->
+</body>
+</body>
+</html>

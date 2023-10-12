@@ -1,0 +1,45 @@
+{% extends "gallery/header.html" %}
+{% block main %}
+
+<body>
+<h1>Images</h1>
+<a href="{% url 'videos' %}" >Videos</a>
+<a href="{% url 'index' %}" >Home</a>
+
+</br>
+<div class="years">
+    {% for year in years %}
+    <div class="year">
+    <a href="?year={{ year }}">{{ year }}</a>  
+    </div>
+    {% endfor %}
+</div>
+
+<form method="post" action="{% url 'delete_selected_photos' %}">
+    <div class="image-container">
+        {% csrf_token %}
+        {% for photo in page_obj %}
+            <div class="image-wrapper">
+                <img class="thumbnail" src="{{photo.image.url}}", onclick="showModal(this.src)" style="width:100%; max-width:300px; height:auto"> 
+                <input type="checkbox" class="image-checkbox" name="selected_photos" value="{{ photo.id }}">
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="del-button">
+    <button type="submit">DELETE Selected</button>
+    </div>
+</form>
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+{% include "gallery/footer.html" %}
+
+</body>
+</html>
+{% endblock main %}
+

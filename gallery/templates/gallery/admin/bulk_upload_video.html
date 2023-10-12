@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<h1>Upload Multiple Video files </h1>
+
+<form method="post" enctype="multipart/form-data">
+
+	{% csrf_token %}
+	{% comment %} {{ form.as_p }} {% endcomment %}
+	<input type="file" name="video" multiple>
+
+	<button type="submit"> {% trans "Upload" %} </button>
+
+</form>
+
+{% endblock %}

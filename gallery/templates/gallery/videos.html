@@ -1,0 +1,32 @@
+{% extends "gallery/header.html" %}
+{% block main%}
+
+
+<body>
+<h1>Videos</h1>
+<a href="{% url 'images' %}" >Images</a>
+<a href="{% url 'index' %}" >Home</a>
+
+</br>
+{% for year in years %}
+    <a href="?year={{ year }}">{{ year }}</a> | 
+{% endfor %}
+
+<div class="image-container">
+{% for video in page_obj %}
+    <video width="320" height="240" controls>
+        <source src="{{video.video_file.url}}" type="video/mp4">
+    </video>
+
+{% endfor %}
+</div>
+
+{% include "gallery/footer.html" %}
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+</body>
+</html>
+{% endblock %}

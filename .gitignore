@@ -1,0 +1,7 @@
+photogallery/settings.py
+__pycache__/
+env/
+venv/
+.idea/
+.DS_Store
+default_value/
